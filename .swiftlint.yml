@@ -1,0 +1,73 @@
+disabled_rules: # rule identifiers to exclude from running
+  - function_body_length
+  - todo
+  - nesting
+opt_in_rules: # some rules are only opt-in
+  - empty_count
+  - cyclomatic_complexity
+  - anyobject_protocol
+  - closure_spacing
+  - contains_over_first_not_nil
+  - empty_string
+# - fatal_error_message
+  - first_where
+  - private_action
+#  - private_outlet
+  - private_over_fileprivate
+  - redundant_nil_coalescing
+  - overridden_super_call
+
+  # Find all the available rules by running:
+  # swiftlint rules
+whitelist_rules:
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Source/ExcludedFolder
+  - Source/ExcludedFile.swift
+
+identifier_name:
+  excluded:
+    - c
+    - r
+    - at
+    - to
+    - id
+    - T
+
+# configurable rules can be customized from this configuration file
+# binary rules can set their severity level
+force_cast: warning # implicitly
+force_try:
+  severity: warning # explicitly
+# rules that have both warning and error levels, can set just the warning level
+# implicitly
+line_length: 510
+# they can set both implicitly with an array
+type_body_length:
+  - 400 # warning
+  - 500 # error
+# or they can set both explicitly
+file_length:
+  warning: 1000
+  error: 1200
+# naming rules can set warnings/errors for min_length and max_length
+# additionally they can set excluded names
+type_name:
+  min_length: 1 # only warning
+  max_length: # warning and error
+    warning: 40
+    error: 50
+  excluded: iPhone # excluded via string
+function_parameter_count:
+  warning: 8
+  error: 12
+cyclomatic_complexity:
+  warning: 5
+  error: 6
+reporter: "xcode" # reporter type (xcode, json, csv, checkstyle)
+
+#custom_rules:
+#  todo: # rule identifier
+#    included: ".*\\.swift" # regex that defines paths to include during linting. optional.
+#    name: "todo" # rule name. optional.
+#    regex: "([t,T]odo)" # matching pattern
+#    severity: warning # violation severity. optional.
